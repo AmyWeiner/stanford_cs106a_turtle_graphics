@@ -17,33 +17,92 @@
 
 public class TurtleTokenizer {
 
-/**
- * Creates a new TurtleTokenizer that takes its input from the string str.
- * @param str The string to be scanned
- */
+	/**
+	 * Creates a new TurtleTokenizer that takes its input from the string str.
+	 * @param str The string to be scanned
+	 */
 	public TurtleTokenizer(String str) {
-		command = str;
+		command = removeWhiteSpace(str);
+		
+		
 	}
 
-/**
- * Returns true if there are more tokens to read and false if the tokenizer
- * has reached the end of the input.
- * @return A boolean value indicating whether there are any unread tokens
- */
+	/**
+	 * Returns true if there are more tokens to read and false if the tokenizer
+	 * has reached the end of the input.
+	 * @return A boolean value indicating whether there are any unread tokens
+	 */
 	public boolean hasMoreTokens() {
 		return false; // Replace this line with the correct implementation
 	}
 
-/**
- * Returns the next complete token.  If this method is called at the end
- * of the input, the tokenizer returns the empty string.
- * @return The next token in the input
- */
+	/**
+	 * Returns the next complete token.  If this method is called at the end
+	 * of the input, the tokenizer returns the empty string.
+	 * @return The next token in the input
+	 */
 	public String nextToken() {
-		return ""; // Replace this line with the correct implementation
+		String result = "";
+		char ch = command.charAt(0);
+		char ch2 = command.charAt(1);
+		switch (ch){
+		case 'F':
+			if (Character.isLetter(ch2)) {
+				result += ch;
+			} else if (Character.isDigit(ch2)) {
+				//findNextDelimiter();
+			}
+		case 'L':
+			if (Character.isLetter(ch2)) {
+				result += ch;
+			}
+		case 'R':
+			if (Character.isLetter(ch2)) {
+				result += ch;
+			}
+		case 'U':
+			if (Character.isLetter(ch2)) {
+				result += ch;
+			}
+		case 'D':
+			if (Character.isLetter(ch2)) {
+				result += ch;
+			}
+		case 'X':
+			if (Character.isLetter(ch2)) {
+				result += ch;
+			}
+			
+		}
+		command = updateCommand(command);
+		return result;
+		 // Replace this line with the correct implementation
 	}
+	
+	private String removeWhiteSpace(String str) {
+		String result = "";
+		for(int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			if (Character.isLetter(ch)) {
+				result += ch;
+			}
+		}
+		return result;
+	}
+	
+	private String updateCommand(String command) {
+		String result = "";
+		return result;
+	}
+	
+	private void findNextDelimeter() {
+		
+	} 
 
-// Add private methods and instance variables here
+
+
+
+	// Add private methods and instance variables here
 	private String command;
 
 }
