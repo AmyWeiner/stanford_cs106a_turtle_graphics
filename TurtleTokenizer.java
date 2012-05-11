@@ -22,7 +22,7 @@ public class TurtleTokenizer {
  * @param str The string to be scanned
  */
 	public TurtleTokenizer(String str) {
-		// Fill this in
+		command = str;
 	}
 
 /**
@@ -44,5 +44,6 @@ public class TurtleTokenizer {
 	}
 
 // Add private methods and instance variables here
+	private String command;
 
 }
