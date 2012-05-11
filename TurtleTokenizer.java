@@ -23,8 +23,8 @@ public class TurtleTokenizer {
 	 */
 	public TurtleTokenizer(String str) {
 		command = removeWhiteSpace(str);
-		
-		
+
+
 	}
 
 	/**
@@ -50,35 +50,47 @@ public class TurtleTokenizer {
 			if (Character.isLetter(ch2)) {
 				result += ch;
 			} else if (Character.isDigit(ch2)) {
-				//findNextDelimiter();
+				result += ch + findTokenLength(command,ch2);
 			}
 		case 'L':
 			if (Character.isLetter(ch2)) {
 				result += ch;
+			} else if (Character.isDigit(ch2)) {
+				result += ch + findTokenLength(command,ch2);
 			}
 		case 'R':
 			if (Character.isLetter(ch2)) {
 				result += ch;
+			}else if (Character.isDigit(ch2)) {
+				result += ch + findTokenLength(command,ch2);
 			}
 		case 'U':
 			if (Character.isLetter(ch2)) {
 				result += ch;
 			}
+			else if (Character.isDigit(ch2)) {
+				result += ch + findTokenLength(command,ch2);
+			}
 		case 'D':
 			if (Character.isLetter(ch2)) {
 				result += ch;
+			}
+			else if (Character.isDigit(ch2)) {
+				result += ch + findTokenLength(command,ch2);
 			}
 		case 'X':
 			if (Character.isLetter(ch2)) {
 				result += ch;
 			}
-			
+			else if (Character.isDigit(ch2)) {
+				result += ch + findTokenLength(command,ch2);
+			}
 		}
 		command = updateCommand(command);
 		return result;
-		 // Replace this line with the correct implementation
+		// Replace this line with the correct implementation
 	}
-	
+
 	private String removeWhiteSpace(String str) {
 		String result = "";
 		for(int i = 0; i < str.length(); i++) {
@@ -89,14 +101,23 @@ public class TurtleTokenizer {
 		}
 		return result;
 	}
-	
+
 	private String updateCommand(String command) {
 		String result = "";
 		return result;
 	}
-	
-	private void findNextDelimeter() {
-		
+
+	private String findTokenLength(String str, char ch) {
+		int start = str.indexOf(ch);
+		String sub = command.substring(start);
+		String result = "";
+		for(int i = 0; i < sub.length(); i ++) {
+			char ch2 = str.charAt(i);
+			if (Character.isDigit(ch2)) {
+				result += ch2;
+			}
+		}
+		return result;
 	} 
 
 
