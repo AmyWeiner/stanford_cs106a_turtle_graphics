@@ -1,3 +1,5 @@
+import java.util.StringTokenizer;
+
 /*
  * File: TurtleTokenizer.java
  * --------------------------
@@ -51,7 +53,7 @@ public class TurtleTokenizer {
 				result += ch + findTokenLetterLength(command,ch2);
 			}
 		case 'U': case 'D':
-				result += ch;
+			result += ch;
 		case 'X':
 			result += ch + findTokenLetterLength(command,ch2);
 		case '{':
@@ -63,11 +65,10 @@ public class TurtleTokenizer {
 
 	private String removeWhiteSpace(String str) {
 		String result = "";
-		for(int i = 0; i < str.length(); i++) {
-			char ch = str.charAt(i);
-			if (Character.isLetter(ch) || Character.isDigit(ch)) {
-				result += ch;
-			}
+		StringTokenizer tokenizer = new StringTokenizer(str);
+		while (tokenizer.hasMoreTokens()) {
+			String token = tokenizer.nextToken();
+			result += token;
 		}
 		return result;
 	}
@@ -108,5 +109,7 @@ public class TurtleTokenizer {
 	private String command;
 
 	private int bracketCounter;
+
+	private static final String DELIMETERS = " ";
 
 }
