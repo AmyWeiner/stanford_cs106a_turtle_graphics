@@ -99,9 +99,10 @@ public class TurtleTokenizer {
 			result += str.charAt(i);
 			if (str.charAt(i) == '{') {
 				bracketCounter ++;
-			} if (str.charAt(i) == '}') {
+			} else if (str.charAt(i) == '}') {
 				bracketCounter --;
-			} 
+			}
+			if (bracketCounter == 0) return result;
 		}
 		return result;
 	}
@@ -109,5 +110,5 @@ public class TurtleTokenizer {
 	private String command;
 
 	private int bracketCounter;
-	
+
 }
