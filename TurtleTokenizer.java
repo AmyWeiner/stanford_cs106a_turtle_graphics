@@ -23,8 +23,6 @@ public class TurtleTokenizer {
 	 */
 	public TurtleTokenizer(String str) {
 		command = removeWhiteSpace(str);
-
-
 	}
 
 	/**
@@ -33,7 +31,7 @@ public class TurtleTokenizer {
 	 * @return A boolean value indicating whether there are any unread tokens
 	 */
 	public boolean hasMoreTokens() {
-		return false; // Replace this line with the correct implementation
+		return command.length() > 0; 
 	}
 
 	/**
@@ -46,49 +44,21 @@ public class TurtleTokenizer {
 		char ch = command.charAt(0);
 		char ch2 = command.charAt(1);
 		switch (ch){
-		case 'F':
+		case 'F': case 'L': case 'R':
 			if (Character.isLetter(ch2)) {
 				result += ch;
 			} else if (Character.isDigit(ch2)) {
-				result += ch + findTokenLength(command,ch2);
+				result += ch + findTokenLetterLength(command,ch2);
 			}
-		case 'L':
-			if (Character.isLetter(ch2)) {
+		case 'U': case 'D':
 				result += ch;
-			} else if (Character.isDigit(ch2)) {
-				result += ch + findTokenLength(command,ch2);
-			}
-		case 'R':
-			if (Character.isLetter(ch2)) {
-				result += ch;
-			}else if (Character.isDigit(ch2)) {
-				result += ch + findTokenLength(command,ch2);
-			}
-		case 'U':
-			if (Character.isLetter(ch2)) {
-				result += ch;
-			}
-			else if (Character.isDigit(ch2)) {
-				result += ch + findTokenLength(command,ch2);
-			}
-		case 'D':
-			if (Character.isLetter(ch2)) {
-				result += ch;
-			}
-			else if (Character.isDigit(ch2)) {
-				result += ch + findTokenLength(command,ch2);
-			}
 		case 'X':
-			if (Character.isLetter(ch2)) {
-				result += ch;
-			}
-			else if (Character.isDigit(ch2)) {
-				result += ch + findTokenLength(command,ch2);
-			}
+			result += ch + findTokenLetterLength(command,ch2);
+		case '{':
+			result += findTokenBracketLength(command, ch);
 		}
-		command = updateCommand(command);
+		command = updateCommand(command, result);
 		return result;
-		// Replace this line with the correct implementation
 	}
 
 	private String removeWhiteSpace(String str) {
@@ -102,12 +72,13 @@ public class TurtleTokenizer {
 		return result;
 	}
 
-	private String updateCommand(String command) {
-		String result = "";
-		return result;
+	private String updateCommand(String command, String str) {
+		int length = str.length();
+		String sub = command.substring(length);
+		return sub;
 	}
 
-	private String findTokenLength(String str, char ch) {
+	private String findTokenLetterLength(String str, char ch) {
 		int start = str.indexOf(ch);
 		String sub = command.substring(start);
 		String result = "";
@@ -120,10 +91,22 @@ public class TurtleTokenizer {
 		return result;
 	} 
 
+	private String findTokenBracketLength(String str, char ch) {
+		bracketCounter = 1;
+		String result = "";
+		for (int i = 0; i < str.length(); i ++) {
+			result += str.charAt(i);
+			if (str.charAt(i) == '{') {
+				bracketCounter ++;
+			} if (str.charAt(i) == '}') {
+				bracketCounter --;
+			} 
+		}
+		return result;
+	}
 
-
-
-	// Add private methods and instance variables here
 	private String command;
+
+	private int bracketCounter;
 
 }
