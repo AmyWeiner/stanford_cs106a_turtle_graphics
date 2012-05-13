@@ -109,7 +109,5 @@ public class TurtleTokenizer {
 	private String command;
 
 	private int bracketCounter;
-
-	private static final String DELIMETERS = " ";
-
+	
 }
