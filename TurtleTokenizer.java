@@ -47,7 +47,7 @@ public class TurtleTokenizer {
 		char ch2 = command.charAt(1);
 		switch (ch){
 		case 'F': case 'L': case 'R':
-			if (command.length() > 1 && Character.isLetter(ch2)) {
+			if (Character.isLetter(ch2)) {
 				result += ch;
 			} else if (Character.isDigit(ch2)) {
 				System.out.println("letter length: " + findTokenLetterLength(command,ch2));
