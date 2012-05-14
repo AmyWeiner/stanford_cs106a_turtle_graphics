@@ -55,7 +55,6 @@ public class TurtleTokenizer {
 			if (Character.isLetter(ch2)) {
 				result += ch;
 			} else if (Character.isDigit(ch2)) {
-				System.out.println("letter length: " + findTokenLetterLength(command,ch2));
 				result += ch + findTokenLetterLength(command,ch2);
 			} 
 			break;
@@ -92,11 +91,9 @@ public class TurtleTokenizer {
 	private String findTokenLetterLength(String str, char ch) {
 		int start = str.indexOf(ch);
 		String sub = command.substring(start);
-		System.out.println("sub: " + sub);
 		String result = "";
 		for(int i = 0; i < sub.length(); i ++) {
 			char ch2 = sub.charAt(i);
-			System.out.println(ch2);
 			if (Character.isDigit(ch2)) {
 				result += ch2;
 			} else if (Character.isLetter(ch2)) {
