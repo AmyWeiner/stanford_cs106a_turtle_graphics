@@ -44,9 +44,10 @@ public class TurtleTokenizer {
 	public String nextToken() {
 		String result = "";
 		char ch = command.charAt(0);
-		char ch2 = command.charAt(1);
+		//char ch2 = command.charAt(1);
 		switch (ch){
 		case 'F': case 'L': case 'R':
+			/*
 			if (Character.isLetter(ch2)) {
 				result += ch;
 			} else if (Character.isDigit(ch2)) {
@@ -55,12 +56,14 @@ public class TurtleTokenizer {
 			} else if (command.length() == 1) {
 				result += ch;
 			}
+			*/
+			result += findTokenLetterLength(command,ch);
 			break;
 		case 'U': case 'D':
 			result += ch;
 			break;
 		case 'X':
-			result += ch + findTokenLetterLength(command,ch2);
+			result += findTokenLetterLength(command,ch);
 			break;
 		case '{':
 			result += findTokenBracketLength(command, ch); break;
@@ -87,12 +90,12 @@ public class TurtleTokenizer {
 	}
 
 	private String findTokenLetterLength(String str, char ch) {
-		int start = str.indexOf(ch);
-		String sub = command.substring(start);
-		System.out.println("sub: " + sub);
+		//int start = str.indexOf(ch);
+		//String sub = command.substring(start);
+		//System.out.println("sub: " + sub);
 		String result = "";
-		for(int i = 0; i < sub.length(); i ++) {
-			char ch2 = sub.charAt(i);
+		for(int i = 0; i < str.length(); i ++) {
+			char ch2 = str.charAt(i);
 			System.out.println(ch2);
 			if (Character.isDigit(ch2)) {
 				result += ch2;
