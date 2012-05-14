@@ -113,8 +113,9 @@ public class TurtleTokenizer {
 				bracketCounter ++;
 			} else if (str.charAt(i) == '}') {
 				bracketCounter --;
+				if (bracketCounter == 0) return result;
 			}
-			if (bracketCounter == 0) return result;
+			
 		}
 		return result;
 	}
