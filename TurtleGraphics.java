@@ -41,7 +41,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	 *    X#{cmds} Execute the block of commands the specified number of times
 	 */
 	public void execute(String str) {
-		TurtleTokenizer tokenizer = new TurtleTokenizer(str);
+		tokenizer = new TurtleTokenizer(str);
 		while (tokenizer.hasMoreTokens()) {
 			String token = tokenizer.nextToken();
 			translateToCommand(token);
@@ -108,6 +108,12 @@ public class TurtleGraphics extends GraphicsProgram {
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
 				int nTimes = Integer.parseInt(sub);
+				String tokenNext = tokenizer.nextToken();
+				int length = tokenNext.length();
+				String subNext = tokenNext.substring(1, length);
+				for (int i = 0; i < nTimes; i ++) {
+					execute(subNext);
+				}
 			}
 			break;
 		}
@@ -125,4 +131,5 @@ public class TurtleGraphics extends GraphicsProgram {
 
 	private GTurtle turtle;         /* The GTurtle object        */
 	private TurtleGraphicsUI ui;    /* The user-interface object */
+	TurtleTokenizer tokenizer;
 }
