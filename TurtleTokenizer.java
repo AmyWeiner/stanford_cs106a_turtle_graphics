@@ -24,6 +24,7 @@ public class TurtleTokenizer {
 	 * @param str The string to be scanned
 	 */
 	public TurtleTokenizer(String str) {
+		str = str.toUpperCase();
 		command = removeWhiteSpace(str);
 	}
 
