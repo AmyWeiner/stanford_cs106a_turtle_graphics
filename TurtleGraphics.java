@@ -14,6 +14,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* Constants to set the application size */
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
+	
 
 	/*
 	 * Initializes the application.  Programs call the init() method before
@@ -62,6 +63,9 @@ public class TurtleGraphics extends GraphicsProgram {
 		char ch = token.charAt(0);
 		switch (ch){
 		case 'F': 
+			if (token.length() == 1) {
+				turtle.forward(50);
+			}
 			if (isFollowedByInteger(token)) {
 
 			}
@@ -88,7 +92,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 	
 	private boolean isFollowedByInteger(String token) {
-		
+		return true;
 	}
 
 	/* Private instance variables */
