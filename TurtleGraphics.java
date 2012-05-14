@@ -15,9 +15,6 @@ public class TurtleGraphics extends GraphicsProgram {
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
 	
-	private static final int FORWARD_DEFAULT = 50;
-	
-
 	/*
 	 * Initializes the application.  Programs call the init() method before
 	 * laying out the components in the window and the run() method after the
@@ -73,11 +70,17 @@ public class TurtleGraphics extends GraphicsProgram {
 			}
 			break;
 		case 'L': 
+			if (token.length() == 1) {
+				turtle.left(90);
+			}
 			if (isFollowedByInteger(token)) {
 
 			}
 			break;
 		case 'R':
+			if (token.length() == 1) {
+				turtle.right(90);
+			}
 			if (isFollowedByInteger(token)) {
 
 			}
