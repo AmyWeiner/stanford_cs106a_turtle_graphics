@@ -87,6 +87,8 @@ public class TurtleTokenizer {
 			char ch2 = str.charAt(i);
 			if (Character.isDigit(ch2)) {
 				result += ch2;
+			} else if (Character.isLetter(ch2)) {
+				return result;
 			}
 		}
 		return result;
