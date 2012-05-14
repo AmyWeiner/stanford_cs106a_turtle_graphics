@@ -33,7 +33,7 @@ public class TurtleTokenizer {
 	 * @return A boolean value indicating whether there are any unread tokens
 	 */
 	public boolean hasMoreTokens() {
-		return command.length() > 1; 
+		return command.length() > 0; 
 	}
 
 	/**
