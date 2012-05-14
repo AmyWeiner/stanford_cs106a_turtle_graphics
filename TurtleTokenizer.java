@@ -87,6 +87,7 @@ public class TurtleTokenizer {
 	private String findTokenLetterLength(String str, char ch) {
 		int start = str.indexOf(ch);
 		String sub = command.substring(start);
+		System.out.println("sub: " + sub);
 		String result = "";
 		for(int i = 0; i < sub.length(); i ++) {
 			char ch2 = str.charAt(i);
