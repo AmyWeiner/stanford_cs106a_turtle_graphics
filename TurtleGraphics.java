@@ -7,6 +7,8 @@
  * TurtleScanner class in the file TurtleScanner.java.
  */
 
+import java.util.StringTokenizer;
+
 import acm.program.*;
 
 public class TurtleGraphics extends GraphicsProgram {
@@ -55,13 +57,13 @@ public class TurtleGraphics extends GraphicsProgram {
 	 * the user interface, where they appear as pattern->replacement.   
 	 */
 	public void replaceAction() {
-		/*
 		String replacement = ui.getReplacementField();
-		separatePatternAndReplacement(replacement);
+		replacement = removeWhiteSpace(replacement);
+		String pattern = getPattern(replacement);
+		String replace = getReplace(replacement);
 		String text = ui.getProgramText();
 		performReplacements();
 		ui.setProgramText(str);
-		*/
 	}
 
 	private void translateToCommand(String token) {
@@ -123,10 +125,35 @@ public class TurtleGraphics extends GraphicsProgram {
 		char next = token.charAt(1);
 		return Character.isDigit(next);
 	}
+	
+	private String removeWhiteSpace(String str) {
+		String result = "";
+		StringTokenizer tokenizer = new StringTokenizer(str);
+		while (tokenizer.hasMoreTokens()) {
+			String token = tokenizer.nextToken();
+			result += token;
+		}
+		return result;
+	}
 
-	//private String separatePatternAndReplacement() {
-		
-	//}
+	private String getPattern(String replacement) {
+		String result = "";
+		char ch = '-';
+		for (int i = 0; i < replacement.length(); i ++) {
+			result += replacement.charAt(i); 
+			if (replacement.charAt(i) == ch) {
+				result = result.substring(0, i);
+			}
+		}
+		return result;
+	}
+	
+	private String getReplace(String replacement) {
+		char ch = '>';
+		int index = replacement.indexOf(ch);
+		String sub = replacement.substring(index + 1);
+		return sub;
+	}
 	/* Private instance variables */
 
 	private GTurtle turtle;         /* The GTurtle object        */
