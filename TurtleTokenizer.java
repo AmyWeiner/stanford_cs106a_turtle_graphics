@@ -105,7 +105,7 @@ public class TurtleTokenizer {
 	} 
 
 	private String findTokenBracketLength(String str, char ch) {
-		bracketCounter = 1;
+		bracketCounter = 0;
 		String result = "";
 		for (int i = 0; i < str.length(); i ++) {
 			result += str.charAt(i);
