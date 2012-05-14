@@ -52,16 +52,20 @@ public class TurtleTokenizer {
 			} else if (Character.isDigit(ch2)) {
 				result += ch + findTokenLetterLength(command,ch2);
 			}
+			break;
 		case 'U': case 'D':
 			result += ch;
+			break;
 		case 'X':
 			result += ch + findTokenLetterLength(command,ch2);
+			break;
 		case '{':
-			result += findTokenBracketLength(command, ch);
+			result += findTokenBracketLength(command, ch); break;
 		}
 		command = updateCommand(command, result);
 		return result;
 	}
+
 
 	private String removeWhiteSpace(String str) {
 		String result = "";
