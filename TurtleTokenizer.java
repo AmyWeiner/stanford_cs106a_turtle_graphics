@@ -91,6 +91,7 @@ public class TurtleTokenizer {
 		String result = "";
 		for(int i = 0; i < sub.length(); i ++) {
 			char ch2 = str.charAt(i);
+			System.out.println(ch2);
 			if (Character.isDigit(ch2)) {
 				result += ch2;
 			} else if (Character.isLetter(ch2)) {
