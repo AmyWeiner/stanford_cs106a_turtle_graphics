@@ -119,6 +119,7 @@ public class TurtleGraphics extends GraphicsProgram {
 					execute(subNext);
 				}
 			}
+			default:
 			break;
 		}
 	}
