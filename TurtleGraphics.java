@@ -16,6 +16,10 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* Constants to set the application size */
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
+	
+	private static final int FORWARD_MOVE = 50;
+	private static final int LEFT_TURN = 90;
+	private static final int RIGHT_TURN = 90;
 
 	/*
 	 * Initializes the application.  Programs call the init() method before
@@ -71,7 +75,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		switch (ch){
 		case 'F': 
 			if (token.length() == 1) {
-				turtle.forward();
+				turtle.forward(FORWARD_MOVE);
 			}
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
@@ -81,7 +85,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			break;
 		case 'L': 
 			if (token.length() == 1) {
-				turtle.left(90);
+				turtle.left(LEFT_TURN);
 			}
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
@@ -91,7 +95,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			break;
 		case 'R':
 			if (token.length() == 1) {
-				turtle.right(90);
+				turtle.right(RIGHT_TURN);
 			}
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
