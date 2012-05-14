@@ -14,7 +14,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* Constants to set the application size */
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
-	
+
 	/*
 	 * Initializes the application.  Programs call the init() method before
 	 * laying out the components in the window and the run() method after the
@@ -55,7 +55,13 @@ public class TurtleGraphics extends GraphicsProgram {
 	 * the user interface, where they appear as pattern->replacement.   
 	 */
 	public void replaceAction() {
-		// Fill this in
+		/*
+		String replacement = ui.getReplacementField();
+		separatePatternAndReplacement(replacement);
+		String text = ui.getProgramText();
+		performReplacements();
+		ui.setProgramText(str);
+		*/
 	}
 
 	private void translateToCommand(String token) {
@@ -99,15 +105,22 @@ public class TurtleGraphics extends GraphicsProgram {
 			turtle.penDown();
 			break;
 		case 'X':
+			if (isFollowedByInteger(token)) {
+				String sub = token.substring(1);
+				int nTimes = Integer.parseInt(sub);
+			}
 			break;
 		}
 	}
-	
+
 	private boolean isFollowedByInteger(String token) {
 		char next = token.charAt(1);
 		return Character.isDigit(next);
 	}
 
+	//private String separatePatternAndReplacement() {
+		
+	//}
 	/* Private instance variables */
 
 	private GTurtle turtle;         /* The GTurtle object        */
