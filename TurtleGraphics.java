@@ -124,6 +124,9 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 
 	private boolean isFollowedByInteger(String token) {
+		if (token.length() == 1) {
+			return false;
+		}
 		char next = token.charAt(1);
 		return Character.isDigit(next);
 	}
