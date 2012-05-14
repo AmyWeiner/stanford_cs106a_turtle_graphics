@@ -66,7 +66,9 @@ public class TurtleGraphics extends GraphicsProgram {
 				turtle.forward();
 			}
 			if (isFollowedByInteger(token)) {
-
+				String sub = token.substring(1);
+				int x = Integer.parseInt(sub);
+				turtle.forward(x);
 			}
 			break;
 		case 'L': 
@@ -97,7 +99,8 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 	
 	private boolean isFollowedByInteger(String token) {
-		return true;
+		char next = token.charAt(1);
+		return Character.isDigit(next);
 	}
 
 	/* Private instance variables */
