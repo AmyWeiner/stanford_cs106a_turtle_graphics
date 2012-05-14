@@ -115,7 +115,6 @@ public class TurtleTokenizer {
 				bracketCounter --;
 				if (bracketCounter == 0) return result;
 			}
-			
 		}
 		return result;
 	}
