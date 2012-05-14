@@ -112,6 +112,9 @@ public class TurtleGraphics extends GraphicsProgram {
 				String tokenNext = tokenizer.nextToken();
 				int length = tokenNext.length();
 				String subNext = tokenNext.substring(1, length);
+				
+				System.out.println("WHAT WE ARE EXECUTING: " + subNext);
+				
 				for (int i = 0; i < nTimes; i ++) {
 					execute(subNext);
 				}
