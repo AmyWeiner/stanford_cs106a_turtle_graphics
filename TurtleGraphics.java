@@ -41,7 +41,11 @@ public class TurtleGraphics extends GraphicsProgram {
  *    X#{cmds} Execute the block of commands the specified number of times
  */
 	public void execute(String str) {
-		// Fill this in
+		TurtleTokenizer tokenizer = new TurtleTokenizer(str);
+		while (tokenizer.hasMoreTokens()) {
+			String token = tokenizer.nextToken();
+			translateToCommand(token);
+		}
 	}
 
 /*
@@ -52,6 +56,21 @@ public class TurtleGraphics extends GraphicsProgram {
  */
 	public void replaceAction() {
 		// Fill this in
+	}
+	
+	private void translateToCommand(String token) {
+		switch (){
+		case 'F': case 'L': case 'R':
+			if (isFollowedByInteger()) {
+				
+			}
+			break;
+		case 'U': 
+			break;
+		case 'D':
+			break;
+		case 'X':
+			break;
 	}
 
 /* Private instance variables */
