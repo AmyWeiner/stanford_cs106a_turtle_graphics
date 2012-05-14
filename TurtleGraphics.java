@@ -15,6 +15,8 @@ public class TurtleGraphics extends GraphicsProgram {
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
 	
+	private static final int FORWARD_DEFAULT = 50;
+	
 
 	/*
 	 * Initializes the application.  Programs call the init() method before
@@ -64,7 +66,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		switch (ch){
 		case 'F': 
 			if (token.length() == 1) {
-				turtle.forward(50);
+				turtle.forward();
 			}
 			if (isFollowedByInteger(token)) {
 
