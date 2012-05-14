@@ -67,7 +67,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 
 	private void translateToCommand(String token) {
-		token = token.toUpperCase();
+		//token = token.toUpperCase();
 		char ch = token.charAt(0);
 		switch (ch){
 		case 'F': 
