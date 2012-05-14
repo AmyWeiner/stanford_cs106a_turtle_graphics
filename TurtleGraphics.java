@@ -62,12 +62,11 @@ public class TurtleGraphics extends GraphicsProgram {
 		String pattern = getPattern(replacement);
 		String replace = getReplace(replacement);
 		String text = ui.getProgramText();
-		performReplacements();
-		ui.setProgramText(str);
+		//performReplacements();
+		//ui.setProgramText(str);
 	}
 
 	private void translateToCommand(String token) {
-		//token = token.toUpperCase();
 		char ch = token.charAt(0);
 		switch (ch){
 		case 'F': 
