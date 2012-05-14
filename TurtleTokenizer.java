@@ -52,8 +52,9 @@ public class TurtleTokenizer {
 			} else if (Character.isDigit(ch2)) {
 				System.out.println("letter length: " + findTokenLetterLength(command,ch2));
 				result += ch + findTokenLetterLength(command,ch2);
-			} else 
+			} else if (command.length() == 1) {
 				result += ch;
+			}
 			break;
 		case 'U': case 'D':
 			result += ch;
