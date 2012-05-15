@@ -120,7 +120,7 @@ public class TurtleGraphics extends GraphicsProgram {
 				System.out.println("tokenNext: " + tokenNext);
 				int length = tokenNext.length();
 				String subNext = tokenNext.substring(1, (length -1));
-				//System.out.println("subnext: " + subNext);
+				System.out.println("subnext: " + subNext);
 				//System.out.println("WHAT WE ARE EXECUTING: " + subNext);
 				
 				for (int i = 0; i < nTimes; i ++) {
