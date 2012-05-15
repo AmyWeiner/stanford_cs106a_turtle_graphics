@@ -54,11 +54,11 @@ public class TurtleGraphics extends GraphicsProgram {
 			String token = tokenizer.nextToken();
 			println("TOKEN IS " + token);
 		}
-		
+		/*
 		while (tokenizer.hasMoreTokens()) {
 			String token = tokenizer.nextToken();
 			translateToCommand(token);
-		}
+		}*/
 	}
 
 	/*
