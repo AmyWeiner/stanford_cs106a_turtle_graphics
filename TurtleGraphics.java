@@ -122,8 +122,8 @@ public class TurtleGraphics extends GraphicsProgram {
 				//System.out.println("WHAT WE ARE EXECUTING: " + subNext);
 				
 				for (int i = 0; i < nTimes; i ++) {
-					System.out.println("nTimes: " + nTimes + "iteration: " + i);
-					System.out.println("subnext: " + subNext);
+					//System.out.println("nTimes: " + nTimes + "iteration: " + i);
+					//System.out.println("subnext: " + subNext);
 					execute(subNext);
 				}
 			}
