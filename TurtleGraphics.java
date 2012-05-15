@@ -180,6 +180,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		System.out.println("pattern:" + pattern);
 		System.out.println("replace:" + replace);
 		int position = text.indexOf(replace);
+		 System.out.println("position:" + position);
 		String result = "";
 		while (position != -1) {
 			String head = text.substring(0, position);
@@ -188,7 +189,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			 result = head + replace + tail;
 			 System.out.println("result:" + result);
 			 position = result.indexOf(replace, length);
-			 System.out.println("position:" + position);
+			
 			return result;
 		} 
 		return result;
