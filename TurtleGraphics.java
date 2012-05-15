@@ -183,10 +183,10 @@ public class TurtleGraphics extends GraphicsProgram {
 		System.out.println(text.substring(0, 4));
 		System.out.println(text.substring(0, 4).equals(pattern));
 		 System.out.println("position:" + position);
-		String result = "";
+		String result = text;
 		while (position != -1) {
-			String head = text.substring(0, position);
-			String tail = text.substring(position + pattern.length());
+			String head = result.substring(0, position);
+			String tail = result.substring(position + pattern.length());
 			int length = head.length() + replace.length();
 			 result = head + replace + tail;
 			 System.out.println("result:" + result);
