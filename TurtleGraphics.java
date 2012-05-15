@@ -64,12 +64,12 @@ public class TurtleGraphics extends GraphicsProgram {
 	 */
 	public void replaceAction() {
 		String replacement = ui.getReplacementField();
-		replacement = removeWhiteSpace(replacement);
-		String pattern = getPattern(replacement);
-		String replace = getReplace(replacement);
-		String text = ui.getProgramText();
-		//performReplacements();
-		//ui.setProgramText(str);
+		replacement = removeWhiteSpace(replacement);		//text from replacement field without white space
+		String pattern = getPattern(replacement);			//command to use as replacement
+		String replace = getReplace(replacement);			//command to be replaced
+		String text = ui.getProgramText();					//original command prior to replacement
+		String replaced = performReplacements(text, pattern, replace);
+		ui.setProgramText(replaced);
 	}
 
 	/* This method determines which Turtle command to execute based on the token it receives. */
@@ -80,7 +80,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			if (token.length() == 1) {
 				turtle.forward(FORWARD_MOVE);						//default for moving forward
 			}
-			if (isFollowedByInteger(token)) {
+			if (isFollowedByInteger(token)) {					
 				String sub = token.substring(1);
 				int pixels = Integer.parseInt(sub);
 				turtle.forward(pixels);
@@ -168,6 +168,20 @@ public class TurtleGraphics extends GraphicsProgram {
 		int index = replacement.indexOf(ch);
 		String sub = replacement.substring(index + 1);
 		return sub;
+	}
+	
+	private String performReplacements(String text, String pattern, String replace) {
+		int position = text.indexOf(replace);
+		String result = "";
+		while (position != -1) {
+			String head = text.substring(0, position);
+			String tail = text.substring(position + 1);
+			int length = head.length() + replace.length();
+			 result = head + replace + tail;
+			 position = result.indexOf(replace, length);
+			return result;
+		} 
+		return result;
 	}
 	
 	/* Private instance variables */
