@@ -47,11 +47,11 @@ public class TurtleGraphics extends GraphicsProgram {
 	 *    X#{cmds} Execute the block of commands the specified number of times
 	 */
 	public void execute(String str) {
-		tokenizer = new TurtleTokenizer(str);
+		TurtleTokenizer tokenizer = new TurtleTokenizer(str);
 
 		while (tokenizer.hasMoreTokens()) {
 			String token = tokenizer.nextToken();
-			translateToCommand(token);
+			translateToCommand(tokenizer, token);
 		}
 	}
 
@@ -71,7 +71,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		//ui.setProgramText(str);
 	}
 
-	private void translateToCommand(String token) {
+	private void translateToCommand(TurtleTokenizer tokenizer, String token) {
 		//println("token is: " + token);
 		char ch = token.charAt(0);
 		switch (ch){
@@ -175,5 +175,5 @@ public class TurtleGraphics extends GraphicsProgram {
 
 	private GTurtle turtle;         /* The GTurtle object        */
 	private TurtleGraphicsUI ui;    /* The user-interface object */
-	TurtleTokenizer tokenizer;
+	//TurtleTokenizer tokenizer;
 }
