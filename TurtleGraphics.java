@@ -49,7 +49,6 @@ public class TurtleGraphics extends GraphicsProgram {
 	 */
 	public void execute(String str) {
 		TurtleTokenizer tokenizer = new TurtleTokenizer(str);
-
 		while (tokenizer.hasMoreTokens()) {
 			String token = tokenizer.nextToken();
 			translateToCommand(tokenizer, token);
@@ -68,7 +67,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		String pattern = getPattern(replacement);			//command to use as replacement
 		String replace = getReplace(replacement);			//command to be replaced
 		String text = ui.getProgramText();					//original command prior to replacement
-		String replaced = performReplacements(text, pattern, replace);
+		String replaced = performReplacements(text, pattern, replace); //updated command upon replacement
 		ui.setProgramText(replaced);
 	}
 
@@ -153,17 +152,6 @@ public class TurtleGraphics extends GraphicsProgram {
 	private String getPattern(String replacement) {
 		int position = replacement.indexOf("->");
 		String result = replacement.substring(0, position);
-		/*
-		String result = "";
-		char ch = '-';
-		for (int i = 0; i < replacement.length(); i ++) {
-			result += replacement.charAt(i); 
-			if (replacement.charAt(i) == ch) {
-				result = result.substring(0, i);
-				
-			}
-		}
-		*/
 		return result;
 	}
 	
@@ -175,21 +163,15 @@ public class TurtleGraphics extends GraphicsProgram {
 		return sub;
 	}
 	
+	/* This method replaces every instance of pattern within the command with the command replace. */
 	private String performReplacements(String text, String pattern, String replace) {
-		System.out.println("text:" + text);
-		System.out.println("pattern:" + pattern);
-		System.out.println("replace:" + replace);
 		int position = text.indexOf(pattern);
-		System.out.println(text.substring(0, 4));
-		System.out.println(text.substring(0, 4).equals(pattern));
-		 System.out.println("position:" + position);
 		String result = text;
 		while (position != -1) {
 			String head = result.substring(0, position);
 			String tail = result.substring(position + pattern.length());
 			int length = head.length() + replace.length();
 			 result = head + replace + tail;
-			 System.out.println("result:" + result);
 			 position = result.indexOf(pattern, length);
 		} 
 		return result;
