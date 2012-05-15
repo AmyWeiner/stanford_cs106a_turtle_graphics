@@ -50,7 +50,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		tokenizer = new TurtleTokenizer(str);
 		TurtleTokenizer tmptoken = new TurtleTokenizer(str);
 
-		while (tokenizer.hasMoreTokens()) {
+		while (tmptoken.hasMoreTokens()) {
 			String token = tokenizer.nextToken();
 			translateToCommand(token);
 		}
