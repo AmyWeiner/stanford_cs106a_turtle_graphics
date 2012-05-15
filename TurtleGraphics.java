@@ -171,6 +171,9 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 	
 	private String performReplacements(String text, String pattern, String replace) {
+		System.out.print("text:" + text);
+		System.out.print("pattern:" + pattern);
+		System.out.print("replace:" + replace);
 		int position = text.indexOf(replace);
 		String result = "";
 		while (position != -1) {
