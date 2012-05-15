@@ -110,6 +110,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			turtle.penDown();
 			break;
 		case 'X':
+			// X4{X4{F120L90}L10}
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
 				//System.out.println("sub: " + sub);
