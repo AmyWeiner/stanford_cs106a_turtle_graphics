@@ -1,3 +1,13 @@
+/*
+ * File: TestTurtleTokenizer.java
+ * ------------------------------------------------------------------------
+ * This program test the Turtle Tokenizer class in order to ensure that the
+ * tokens are being processed correctly. The program continuously prompts 
+ * the user to enter a Turtle Graphics command, and then it parses it into
+ * the appropriate tokens, and displays the tokens on the screen.
+ */
+
+
 import acm.program.ConsoleProgram;
 
 
