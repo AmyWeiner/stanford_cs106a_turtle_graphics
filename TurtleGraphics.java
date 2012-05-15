@@ -123,7 +123,7 @@ public class TurtleGraphics extends GraphicsProgram {
 				
 				for (int i = 0; i < nTimes; i ++) {
 					System.out.println("token: " + token);
-					execute(token);
+					execute(token + tokenNext);
 				}
 			}
 			default:
