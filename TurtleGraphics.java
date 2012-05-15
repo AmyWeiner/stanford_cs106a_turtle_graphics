@@ -112,17 +112,18 @@ public class TurtleGraphics extends GraphicsProgram {
 		case 'X':
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
-				System.out.println("sub: " + sub);
+				//System.out.println("sub: " + sub);
 				int nTimes = Integer.parseInt(sub);
 				String tokenNext = tokenizer.nextToken();
-				System.out.println("tokenNext: " + tokenNext);
+				//System.out.println("tokenNext: " + tokenNext);
 				int length = tokenNext.length();
 				String subNext = tokenNext.substring(1, (length -1));
-				System.out.println("subnext: " + subNext);
+				//System.out.println("subnext: " + subNext);
 				//System.out.println("WHAT WE ARE EXECUTING: " + subNext);
 				
 				for (int i = 0; i < nTimes; i ++) {
-					System.out.println("token: " + token);
+					System.out.println("nTimes: " + nTimes + "iteration: " + i);
+					System.out.println("subnext: " + subNext);
 					execute(subNext);
 				}
 			}
