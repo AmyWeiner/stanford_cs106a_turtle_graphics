@@ -191,8 +191,6 @@ public class TurtleGraphics extends GraphicsProgram {
 			 result = head + replace + tail;
 			 System.out.println("result:" + result);
 			 position = result.indexOf(pattern, length);
-			
-			return result;
 		} 
 		return result;
 	}
