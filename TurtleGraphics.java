@@ -17,6 +17,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
 	
+	/* Constants to set the defaults for the commands */
 	private static final int FORWARD_MOVE = 50;
 	private static final int LEFT_TURN = 90;
 	private static final int RIGHT_TURN = 90;
@@ -71,12 +72,13 @@ public class TurtleGraphics extends GraphicsProgram {
 		//ui.setProgramText(str);
 	}
 
+	/* This method determines which Turtle command to execute based on the token it receives. */
 	private void translateToCommand(TurtleTokenizer tokenizer, String token) {
 		char ch = token.charAt(0);
 		switch (ch){
 		case 'F': 
 			if (token.length() == 1) {
-				turtle.forward(FORWARD_MOVE);
+				turtle.forward(FORWARD_MOVE);						//default for moving forward
 			}
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
@@ -85,7 +87,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			}
 			break;
 		case 'L': 
-			if (token.length() == 1) {
+			if (token.length() == 1) {								//default for turning left
 				turtle.left(LEFT_TURN);
 			}
 			if (isFollowedByInteger(token)) {
@@ -95,7 +97,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			}
 			break;
 		case 'R':
-			if (token.length() == 1) {
+			if (token.length() == 1) {								//default for turning right
 				turtle.right(RIGHT_TURN);
 			}
 			if (isFollowedByInteger(token)) {
@@ -112,8 +114,8 @@ public class TurtleGraphics extends GraphicsProgram {
 			break;
 		case 'X':
 			if (isFollowedByInteger(token)) {
-				String sub = token.substring(1);
-				int nTimes = Integer.parseInt(sub);
+				String sub = token.substring(1);					
+				int nTimes = Integer.parseInt(sub);					//determines the number of times command should be executed
 				String tokenNext = tokenizer.nextToken();
 				int length = tokenNext.length();
 				String subNext = tokenNext.substring(1, (length -1));
@@ -127,6 +129,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		}
 	}
 
+	/* This method determines whether or not the command letter is followed by an integer. */
 	private boolean isFollowedByInteger(String token) {
 		if (token.length() == 1) {
 			return false;
@@ -135,6 +138,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		return Character.isDigit(next);
 	}
 	
+	/* This method removes the white space from the command string. */
 	private String removeWhiteSpace(String str) {
 		String result = "";
 		StringTokenizer tokenizer = new StringTokenizer(str);
@@ -145,6 +149,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		return result;
 	}
 
+	/* This method gets the command that will be used as the replacement. */
 	private String getPattern(String replacement) {
 		String result = "";
 		char ch = '-';
@@ -157,12 +162,14 @@ public class TurtleGraphics extends GraphicsProgram {
 		return result;
 	}
 	
+	/* This method gets the command that will be replaced. */
 	private String getReplace(String replacement) {
 		char ch = '>';
 		int index = replacement.indexOf(ch);
 		String sub = replacement.substring(index + 1);
 		return sub;
 	}
+	
 	/* Private instance variables */
 
 	private GTurtle turtle;         /* The GTurtle object        */
