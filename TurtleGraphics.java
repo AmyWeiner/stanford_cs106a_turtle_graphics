@@ -151,14 +151,19 @@ public class TurtleGraphics extends GraphicsProgram {
 
 	/* This method gets the command that will be used as the replacement. */
 	private String getPattern(String replacement) {
+		int position = replacement.indexOf("->");
+		String result = replacement.substring(0, position);
+		/*
 		String result = "";
 		char ch = '-';
 		for (int i = 0; i < replacement.length(); i ++) {
 			result += replacement.charAt(i); 
 			if (replacement.charAt(i) == ch) {
 				result = result.substring(0, i);
+				
 			}
 		}
+		*/
 		return result;
 	}
 	
