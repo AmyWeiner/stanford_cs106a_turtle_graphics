@@ -2,7 +2,7 @@ import java.util.StringTokenizer;
 
 /*
  * File: TurtleTokenizer.java
- * --------------------------
+ * ---------------------------------------------------------------------
  * This file implements a simple tokenizer for the TurtleGraphics system.
  */
 
@@ -73,6 +73,7 @@ public class TurtleTokenizer {
 	}
 
 
+	/* This method removes the white space from the command string. */
 	private String removeWhiteSpace(String str) {
 		String result = "";
 		StringTokenizer tokenizer = new StringTokenizer(str);
@@ -119,6 +120,7 @@ public class TurtleTokenizer {
 		return result;
 	}
 
+	/* Instance variable for the command */
 	private String command;
 
 	private int bracketCounter;
