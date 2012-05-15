@@ -72,7 +72,6 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 
 	private void translateToCommand(TurtleTokenizer tokenizer, String token) {
-		//println("token is: " + token);
 		char ch = token.charAt(0);
 		switch (ch){
 		case 'F': 
@@ -112,21 +111,14 @@ public class TurtleGraphics extends GraphicsProgram {
 			turtle.penDown();
 			break;
 		case 'X':
-			// X4{X4{F120L90}L10}
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
-				//System.out.println("sub: " + sub);
 				int nTimes = Integer.parseInt(sub);
 				String tokenNext = tokenizer.nextToken();
-				System.out.println("tokenNext: " + tokenNext);
 				int length = tokenNext.length();
 				String subNext = tokenNext.substring(1, (length -1));
-				System.out.println("subnext: " + subNext);
-				//System.out.println("WHAT WE ARE EXECUTING: " + subNext);
 				
 				for (int i = 0; i < nTimes; i ++) {
-					//System.out.println("nTimes: " + nTimes + "iteration: " + i);
-					//System.out.println("subnext: " + subNext);
 					execute(subNext);
 				}
 			}
@@ -175,5 +167,4 @@ public class TurtleGraphics extends GraphicsProgram {
 
 	private GTurtle turtle;         /* The GTurtle object        */
 	private TurtleGraphicsUI ui;    /* The user-interface object */
-	//TurtleTokenizer tokenizer;
 }
