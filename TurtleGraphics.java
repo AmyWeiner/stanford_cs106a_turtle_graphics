@@ -179,18 +179,18 @@ public class TurtleGraphics extends GraphicsProgram {
 		System.out.println("text:" + text);
 		System.out.println("pattern:" + pattern);
 		System.out.println("replace:" + replace);
-		int position = text.indexOf(replace);
+		int position = text.indexOf(pattern);
 		System.out.println(text.substring(0, 4));
-		System.out.println(text.substring(0, 4).equals(replace));
+		System.out.println(text.substring(0, 4).equals(pattern));
 		 System.out.println("position:" + position);
 		String result = "";
 		while (position != -1) {
 			String head = text.substring(0, position);
 			String tail = text.substring(position + 1);
-			int length = head.length() + replace.length();
+			int length = head.length() + pattern.length();
 			 result = head + replace + tail;
 			 System.out.println("result:" + result);
-			 position = result.indexOf(replace, length);
+			 position = result.indexOf(pattern, length);
 			
 			return result;
 		} 
