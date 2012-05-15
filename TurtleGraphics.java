@@ -117,7 +117,7 @@ public class TurtleGraphics extends GraphicsProgram {
 				//System.out.println("sub: " + sub);
 				int nTimes = Integer.parseInt(sub);
 				String tokenNext = tokenizer.nextToken();
-				//System.out.println("tokenNext: " + tokenNext);
+				System.out.println("tokenNext: " + tokenNext);
 				int length = tokenNext.length();
 				String subNext = tokenNext.substring(1, (length -1));
 				//System.out.println("subnext: " + subNext);
