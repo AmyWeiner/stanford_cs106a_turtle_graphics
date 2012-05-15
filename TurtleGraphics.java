@@ -129,8 +129,6 @@ public class TurtleGraphics extends GraphicsProgram {
 					//System.out.println("subnext: " + subNext);
 					execute(subNext);
 				}
-				
-				println("Is there a next token? " + tokenizer.hasMoreTokens());
 			}
 			default:
 			break;
