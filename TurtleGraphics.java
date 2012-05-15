@@ -122,6 +122,7 @@ public class TurtleGraphics extends GraphicsProgram {
 				//System.out.println("WHAT WE ARE EXECUTING: " + subNext);
 				
 				for (int i = 0; i < nTimes; i ++) {
+					System.out.println("token: " + token);
 					execute(token);
 				}
 			}
