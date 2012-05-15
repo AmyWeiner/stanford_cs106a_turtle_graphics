@@ -186,6 +186,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			String tail = text.substring(position + 1);
 			int length = head.length() + replace.length();
 			 result = head + replace + tail;
+			 System.out.println("result:" + result);
 			 position = result.indexOf(replace, length);
 			return result;
 		} 
