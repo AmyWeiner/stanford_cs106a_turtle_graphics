@@ -187,7 +187,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		while (position != -1) {
 			String head = text.substring(0, position);
 			String tail = text.substring(position + pattern.length());
-			int length = head.length() + pattern.length();
+			int length = head.length() + replace.length();
 			 result = head + replace + tail;
 			 System.out.println("result:" + result);
 			 position = result.indexOf(pattern, length);
