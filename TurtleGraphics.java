@@ -120,7 +120,7 @@ public class TurtleGraphics extends GraphicsProgram {
 				int length = tokenNext.length();
 				char first = tokenNext.charAt(0);
 				char last = tokenNext.charAt(length -1);
-				if (first != '{' && last != '}') {
+				if (first != '{' && last != '}') {					//checks for missing block statement
 					throw new ErrorException("Missing command block");
 				}
 				String subNext = tokenNext.substring(1, (length -1));
@@ -157,7 +157,7 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* This method gets the command that will be used as the replacement. */
 	private String getPattern(String replacement) {
 		int position = replacement.indexOf("->");
-		if (position == -1){
+		if (position == -1){											//checks for missing ->
 			throw new ErrorException("Missing ->");
 		}
 		String result = replacement.substring(0, position);
