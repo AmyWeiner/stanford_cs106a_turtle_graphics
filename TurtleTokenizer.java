@@ -86,12 +86,14 @@ public class TurtleTokenizer {
 		return result;
 	}
 
+	/* This method updates the original Turtle command by removing the token that was just called. */
 	private String updateCommand(String command, String str) {
 		int length = str.length();
 		String sub = command.substring(length);
 		return sub;
 	}
 
+	/* This method finds the length of a token when that token starts with a letter. */
 	private String findTokenLetterLength(String str, char ch) {
 		int start = str.indexOf(ch);
 		String sub = command.substring(start);
@@ -107,6 +109,7 @@ public class TurtleTokenizer {
 		return result;
 	} 
 
+	/* This method finds the length of a token when that token starts with a bracket. */
 	private String findTokenBracketLength(String str, char ch) {
 		bracketCounter = 0;
 		String result = "";
@@ -118,7 +121,7 @@ public class TurtleTokenizer {
 				bracketCounter --;
 				if (bracketCounter == 0) return result;
 			}
-			if (bracketCounter != 0) {
+			if (bracketCounter != 0) {										//checks for missing bracket
 				throw new ErrorException("Missing closing brace");
 			}
 		}
@@ -128,6 +131,7 @@ public class TurtleTokenizer {
 	/* Instance variable for the command */
 	private String command;
 
+	/* Instance variable for the bracket counter */
 	private int bracketCounter;
 
 }
