@@ -10,6 +10,7 @@
 import java.util.StringTokenizer;
 
 import acm.program.*;
+import acm.util.ErrorException;
 
 public class TurtleGraphics extends GraphicsProgram {
 
@@ -151,6 +152,9 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* This method gets the command that will be used as the replacement. */
 	private String getPattern(String replacement) {
 		int position = replacement.indexOf("->");
+		if (position == -1){
+			throw new ErrorException("Missing ->");
+		}
 		String result = replacement.substring(0, position);
 		return result;
 	}
