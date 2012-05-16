@@ -118,6 +118,11 @@ public class TurtleGraphics extends GraphicsProgram {
 				int nTimes = Integer.parseInt(sub);					//determines the number of times command should be executed
 				String tokenNext = tokenizer.nextToken();
 				int length = tokenNext.length();
+				char first = tokenNext.charAt(0);
+				char last = tokenNext.charAt(length -1);
+				if (first != '{' && last != '}') {
+					throw new ErrorException("Missing command block");
+				}
 				String subNext = tokenNext.substring(1, (length -1));
 				
 				for (int i = 0; i < nTimes; i ++) {
