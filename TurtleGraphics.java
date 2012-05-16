@@ -182,7 +182,6 @@ public class TurtleGraphics extends GraphicsProgram {
 	}
 	
 	/* Private instance variables */
-
 	private GTurtle turtle;         /* The GTurtle object        */
 	private TurtleGraphicsUI ui;    /* The user-interface object */
 }

@@ -1,5 +1,7 @@
 import java.util.StringTokenizer;
 
+import acm.util.ErrorException;
+
 /*
  * File: TurtleTokenizer.java
  * ---------------------------------------------------------------------
@@ -115,6 +117,9 @@ public class TurtleTokenizer {
 			} else if (str.charAt(i) == '}') {
 				bracketCounter --;
 				if (bracketCounter == 0) return result;
+			}
+			if (bracketCounter != 0) {
+				throw new ErrorException("Missing closing brace");
 			}
 		}
 		return result;
