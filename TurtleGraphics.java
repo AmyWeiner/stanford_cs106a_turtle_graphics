@@ -89,7 +89,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			if (isFollowedByInteger(token)) {	
 			String sub = token.substring(1);
 			int pixels = Integer.parseInt(sub);
-			turtle.forward(pixels);
+			forwardMove = pixels;
 			}
 			break;
 		case 'L': 
@@ -99,7 +99,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
 				int pixels = Integer.parseInt(sub);
-				forwardMove = pixels;
+				turtle.left(pixels);
 			}
 			break;
 		case 'R':
