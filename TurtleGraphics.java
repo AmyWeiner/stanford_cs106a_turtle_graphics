@@ -17,8 +17,9 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* Constants to set the application size */
 	public static final int APPLICATION_WIDTH = 1000;
 	public static final int APPLICATION_HEIGHT = 600;
-	
+
 	/* Constants to set the defaults for the commands */
+	private static final int FORWARD_MOVE = 50;
 	private static final int LEFT_TURN = 90;
 	private static final int RIGHT_TURN = 90;
 
@@ -77,19 +78,12 @@ public class TurtleGraphics extends GraphicsProgram {
 		switch (ch){
 		case 'F': 
 			if (token.length() == 1) {
-				turtle.forward(forwardMove);						//default for moving forward
+				turtle.forward(FORWARD_MOVE);						//default for moving forward
 			}
 			if (isFollowedByInteger(token)) {					
 				String sub = token.substring(1);
 				int pixels = Integer.parseInt(sub);
 				turtle.forward(pixels);
-			}
-			break;
-		case 'M': 
-			if (isFollowedByInteger(token)) {	
-			String sub = token.substring(1);
-			int pixels = Integer.parseInt(sub);
-			forwardMove = pixels;
 			}
 			break;
 		case 'L': 
@@ -130,12 +124,12 @@ public class TurtleGraphics extends GraphicsProgram {
 					throw new ErrorException("Missing command block");
 				}
 				String subNext = tokenNext.substring(1, (length -1));
-				
+
 				for (int i = 0; i < nTimes; i ++) {
 					execute(subNext);
 				}
 			}
-			default:
+		default:
 			break;
 		}
 	}
@@ -148,7 +142,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		char next = token.charAt(1);
 		return Character.isDigit(next);
 	}
-	
+
 	/* This method removes the white space from the command string. */
 	private String removeWhiteSpace(String str) {
 		String result = "";
@@ -169,7 +163,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		String result = replacement.substring(0, position);
 		return result;
 	}
-	
+
 	/* This method gets the command that will be replaced. */
 	private String getReplace(String replacement) {
 		char ch = '>';
@@ -177,7 +171,7 @@ public class TurtleGraphics extends GraphicsProgram {
 		String sub = replacement.substring(index + 1);
 		return sub;
 	}
-	
+
 	/* This method replaces every instance of pattern within the command with the command replace. */
 	private String performReplacements(String text, String pattern, String replace) {
 		int position = text.indexOf(pattern);
@@ -186,14 +180,14 @@ public class TurtleGraphics extends GraphicsProgram {
 			String head = result.substring(0, position);
 			String tail = result.substring(position + pattern.length());
 			int length = head.length() + replace.length();
-			 result = head + replace + tail;
-			 position = result.indexOf(pattern, length);
+			result = head + replace + tail;
+			position = result.indexOf(pattern, length);
 		} 
 		return result;
 	}
-	
+
 	/* Private instance variables */
 	private GTurtle turtle;         /* The GTurtle object        */
 	private TurtleGraphicsUI ui;    /* The user-interface object */
-	private int forwardMove = 50;
+
 }
