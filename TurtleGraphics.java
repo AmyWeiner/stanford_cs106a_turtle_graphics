@@ -19,7 +19,6 @@ public class TurtleGraphics extends GraphicsProgram {
 	public static final int APPLICATION_HEIGHT = 600;
 	
 	/* Constants to set the defaults for the commands */
-	private static final int FORWARD_MOVE = 50;
 	private static final int LEFT_TURN = 90;
 	private static final int RIGHT_TURN = 90;
 
@@ -78,12 +77,19 @@ public class TurtleGraphics extends GraphicsProgram {
 		switch (ch){
 		case 'F': 
 			if (token.length() == 1) {
-				turtle.forward(FORWARD_MOVE);						//default for moving forward
+				turtle.forward(forwardMove);						//default for moving forward
 			}
 			if (isFollowedByInteger(token)) {					
 				String sub = token.substring(1);
 				int pixels = Integer.parseInt(sub);
 				turtle.forward(pixels);
+			}
+			break;
+		case 'M': 
+			if (isFollowedByInteger(token)) {	
+			String sub = token.substring(1);
+			int pixels = Integer.parseInt(sub);
+			turtle.forward(pixels);
 			}
 			break;
 		case 'L': 
@@ -93,7 +99,7 @@ public class TurtleGraphics extends GraphicsProgram {
 			if (isFollowedByInteger(token)) {
 				String sub = token.substring(1);
 				int pixels = Integer.parseInt(sub);
-				turtle.left(pixels);
+				forwardMove = pixels;
 			}
 			break;
 		case 'R':
@@ -189,4 +195,5 @@ public class TurtleGraphics extends GraphicsProgram {
 	/* Private instance variables */
 	private GTurtle turtle;         /* The GTurtle object        */
 	private TurtleGraphicsUI ui;    /* The user-interface object */
+	private int forwardMove = 50;
 }
